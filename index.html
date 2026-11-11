@@ -3,29 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACOM360 | Student Portfolio Template</title>
-    
+    <title>Ian Dobbelaer | Media & Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
     <style>
         /* --- DESIGN STYLES (CSS) --- */
-        
         :root {
             --bg-dark: #111111;
             --bg-card: #1a1a1a;
             --text-light: #ffffff;
             --text-muted: #a0a0a0;
             --accent-color: #C4A052; /* Earth Yellow */
-
-            /* Custom colors for the Featured Works cards */
             --card-1: #8CC63F; /* Lime Green */
             --card-2: #008C95; /* Teal */
             --card-3: #3CB371; /* Forest Green */
             --card-4: #C4A052; /* Earth Yellow */
-            
-            /* This is the magic formula that perfectly constrains the width! */
             --edge-padding: max(5%, calc((100% - 1100px) / 2));
         }
 
@@ -52,7 +45,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem var(--edge-padding); 
+            padding: 2rem var(--edge-padding);
             background-color: rgba(17, 17, 17, 0.95);
             position: fixed;
             width: 100%;
@@ -87,35 +80,33 @@
             color: var(--accent-color);
         }
 
-        /* Dark Gray Divider Lines between sections */
         header, section {
             border-bottom: 1px solid #333;
         }
 
-/* Hero Section */
+        /* Hero Section */
         header {
             height: 60vh;
             position: relative;
-            overflow: hidden; 
+            overflow: hidden;
             margin-top: 85px;
             background-color: #222222;
         }
 
-        /* The Background Image */
         .hero-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; 
-            object-position: center 65%; /* Adjust this percentage to change the crop! */
+            object-fit: cover;
+            object-position: center 65%;
             z-index: 1;
         }
 
         /* Introduction Section */
         .intro-section {
-            padding: 3rem var(--edge-padding); 
+            padding: 3rem var(--edge-padding);
             background-color: var(--bg-dark);
             text-align: left;
         }
@@ -137,18 +128,18 @@
             margin-bottom: 1rem;
         }
 
-        /* About Section (Digital Avatar) */
+        /* About Section */
         .about-section {
             padding: 4rem var(--edge-padding);
         }
 
         .about-card {
             background-color: var(--bg-card);
-            padding: 0; 
+            padding: 0;
             border-radius: 4px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0; 
+            gap: 0;
             align-items: stretch;
             overflow: hidden;
             transition: all 0.4s ease;
@@ -179,12 +170,11 @@
             transition: color 0.4s ease;
         }
 
-        .about-card:hover .about-text h2,
+        .about-card:hover .about-text h2, 
         .about-card:hover .about-text p {
             color: var(--bg-dark);
         }
 
-        /* Updated About Video Section to handle Images */
         .about-video {
             width: 100%;
             height: 100%;
@@ -204,7 +194,7 @@
             display: block;
             transition: opacity 0.3s ease;
         }
-        
+
         .about-video a:hover img {
             opacity: 0.9;
         }
@@ -221,45 +211,34 @@
             color: var(--accent-color);
         }
 
-        /* Original 3-Column Layout */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        /* 4-Column Layout for Posters */
-        .grid-container-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        /* The Cards */
         .grid-item {
             background-color: var(--bg-card);
             border-radius: 4px;
             overflow: hidden;
-            transition: all 0.4s ease; 
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            text-decoration: none; 
+            text-decoration: none;
             cursor: pointer;
         }
 
-        /* Specific Hover Colors */
         .item-1 { --hover-bg: var(--card-1); border-bottom: 3px solid var(--card-1); }
         .item-2 { --hover-bg: var(--card-2); border-bottom: 3px solid var(--card-2); }
         .item-3 { --hover-bg: var(--card-3); border-bottom: 3px solid var(--card-3); }
-        .item-4 { --hover-bg: var(--card-4); border-bottom: 3px solid var(--card-4); }
 
         .grid-item-content {
-            padding: 1.5rem; 
+            padding: 1.5rem;
         }
 
         .grid-item-content h3 {
-            font-size: 1.6rem; 
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
             color: var(--text-light);
             transition: color 0.4s ease;
@@ -271,28 +250,18 @@
             transition: color 0.4s ease;
         }
 
-        /* Media styling for 16:9 Video Feature Pictures */
         .grid-item img.video-thumbnail {
             width: 100%;
             height: 300px;
             object-fit: cover;
         }
 
-        /* Media styling for Vertical Posters */
-        .grid-item img.poster-img {
-            width: 100%;
-            height: 400px; 
-            object-fit: cover;
-            object-position: top; 
-        }
-
-        /* THE HOVER MAGIC FOR CARDS */
         .grid-item:hover {
             transform: translateY(-10px);
-            background-color: var(--hover-bg); 
+            background-color: var(--hover-bg);
         }
 
-        .grid-item:hover .grid-item-content h3,
+        .grid-item:hover .grid-item-content h3, 
         .grid-item:hover .grid-item-content p {
             color: var(--bg-dark);
         }
@@ -300,11 +269,10 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 3rem var(--edge-padding); 
+            padding: 3rem var(--edge-padding);
             background-color: #000;
         }
 
-        /* Footer Links Styling */
         .footer-links {
             margin-top: 1.5rem;
             margin-bottom: 2rem;
@@ -326,56 +294,34 @@
             color: var(--text-light);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .grid-container-4 {
-                grid-template-columns: repeat(2, 1fr); 
-            }
-        }
-
         @media (max-width: 768px) {
-            .about-card {
-                grid-template-columns: 1fr;
-            }
-            .about-text {
-                padding: 2rem;
-            }
-            .nav-links {
-                display: none;
-            }
-            .grid-container-4 {
-                grid-template-columns: 1fr; 
-            }
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
+            .about-card { grid-template-columns: 1fr; }
+            .about-text { padding: 2rem; }
+            .nav-links { display: none; }
+            .footer-links { flex-direction: column; gap: 1rem; }
         }
     </style>
 </head>
-<!-- ACOM360 STUDENT TEMPLATE: All original image src paths are preserved.
-     Every clickable portfolio image or card links to the ACOM360 YouTube channel.
-     Keep the original images/ folder beside this HTML file to display the images. -->
 <body>
 
     <nav>
-        <a href="#" class="logo">ACOM360 Portfolio Template</a>
+        <a href="#" class="logo">Ian Dobbelaer</a>
         <ul class="nav-links">
             <li><a href="#introduction">About</a></li>
-            <li><a href="#portfolio">Exhibitions</a></li>
+            <li><a href="#portfolio">Featured Work</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-<header>
-        <img class="hero-image" src="images/hero-picture.jpg" alt="Portfolio banner image">
+    <header>
+        <img class="hero-image" src="images/hero-picture.jpg" alt="Ian Dobbelaer Portfolio banner">
     </header>
 
     <section id="introduction" class="intro-section">
         <div class="intro-text-container">
-            <h2>About This Portfolio</h2>
-            <p>Welcome to the ACOM360 student portfolio template. Replace this introduction with a brief description of your interests, creative goals, and the work you want to highlight.</p>
-            <p>Use this paragraph to describe your skills, your role in selected projects, and what you learned. Keep the information professional and avoid publishing private contact details.</p>
+            <h2>About Ian Dobbelaer</h2>
+            <p>Welcome to my professional portfolio. I am a communications and media student at the University at Albany with a strong focus on media production, digital storytelling, and strategic content creation.</p>
+            <p>This space highlights my coursework, media projects, and collaborative campaigns exploring the intersections of journalism, artificial intelligence, and visual media.</p>
         </div>
     </section>
 
@@ -383,7 +329,7 @@
         <div class="about-card">
             <div class="about-text">
                 <h2>Digital Avatar</h2>
-                <p>Example project: describe the tools, creative process, and your contributions here. The original image is retained for this template.</p>
+                <p>Highlighting digital media production, AI evaluation tools, and creative project contributions.</p>
             </div>
             <div class="about-video">
                 <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer">
@@ -395,28 +341,25 @@
 
     <section id="portfolio" class="portfolio-section">
         <h2>AI-Powered Documentaries</h2>
-   
         <div class="grid-container">
             <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-1">
                 <div class="grid-item-content">
                     <h3>The Rational Illusion</h3>
-                    <p>Sample project description. Replace with your project credits, production tools, and creative contributions.</p>
+                    <p>Examining logical frameworks and complex narratives through digital documentary production.</p>
                 </div>
                 <img src="images/docpic.png" alt="The Rational Illusion" class="video-thumbnail">
             </a>
-
             <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-2">
                 <div class="grid-item-content">
                     <h3>Course Introduction</h3>
-                    <p>Sample project description. Explain the concept, production process, and tools used.</p>
+                    <p>Overview of production concepts, creative direction, and media frameworks.</p>
                 </div>
                 <img src="images/picavatar.png" alt="Course Introduction" class="video-thumbnail">
             </a>
-
             <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-3">
                 <div class="grid-item-content">
                     <h3>Self Introduction</h3>
-                    <p>Sample project description. Explain the concept, production process, and tools used.</p>
+                    <p>Personal and professional media overview highlighting goals in communications.</p>
                 </div>
                 <img src="images/potfolio.png" alt="Self Introduction" class="video-thumbnail">
             </a>
@@ -425,149 +368,44 @@
 
     <section id="campaigns" class="portfolio-section">
         <h2>Campaign Teasers</h2>
-   
         <div class="grid-container">
             <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-1">
                 <div class="grid-item-content">
                     <h3>World News Day</h3>
-                    <p>This teaser kicks off our participation in World News Day 2026, a global celebration of fact‑based journalism, now in its 8th year.</p>
+                    <p>Produced expert interview video shorts highlighting fact-based journalism and digital news integrity.</p>
                 </div>
                 <img src="images/worldpic.png" alt="World News Day" class="video-thumbnail">
             </a>
-
             <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-2">
                 <div class="grid-item-content">
                     <h3>Local News Heroes</h3>
-                    <p>This is a social media campaign in response to the Local News Crisis. Students produced a series of five 30-second short videos in collaboration with local news outlets in Albany.</p>
+                    <p>Collaborative social media shorts addressing local news awareness and community journalism.</p>
                 </div>
                 <img src="images/localnewspic.png" alt="Local News Heroes" class="video-thumbnail">
             </a>
-
             <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-3">
                 <div class="grid-item-content">
                     <h3>Dialogue 360</h3>
-                    <p>This is a student-led interview series where we sit down with professors, students, and educators to explore the big questions shaping university life today.</p>
+                    <p>Student-led interview features exploring major conversations shaping modern academia and society.</p>
                 </div>
                 <img src="images/360.png" alt="Dialogue 360" class="video-thumbnail">
             </a>
         </div>
     </section>
 
-    <section id="commercials" class="portfolio-section">
-        <h2>Commercial Showcase</h2>
-   
-        <div class="grid-container">
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-1">
-                <div class="grid-item-content">
-                    <h3>Deep Blue Center</h3>
-                    <p>U-shaped screen ultrawide video sample, Qingdao (for educational use only). Concept: Landmark Strategy — German planning DNA &times; Chinese context.</p>
-                </div>
-                <img src="images/deepblue.png" alt="Deep Blue Center" class="video-thumbnail">
-            </a>
-
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-2">
-                <div class="grid-item-content">
-                    <h3>Xiamen Cadaqués</h3>
-                    <p>Dali-Inspired Seaside Community, Xiamen (for educational use only). Concept: Merging surrealism (dream, time, sea motifs) with Spanish-style real estate marketing.</p>
-                </div>
-                <img src="images/kadapic.png" alt="Xiamen Cadaqués" class="video-thumbnail">
-            </a>
-
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-3">
-                <div class="grid-item-content">
-                    <h3>Lavie Town</h3>
-                    <p>Nostalgic Film Creative Cluster, Qingdao (for educational use only). Concept: A living archive of 20th-century cinema languages, where art deco façades meet digital content hubs.</p>
-                </div>
-                <img src="images/lavie.png" alt="Lavie Town" class="video-thumbnail">
-            </a>
-        </div>
-    </section>
-
-    <section id="posters-1" class="portfolio-section">
-        <h2>Poster Showcase I</h2>
-   
-        <div class="grid-container-4">
-            <a href="images/005.jpg" target="_blank" rel="noopener noreferrer" class="grid-item item-1">
-                <div class="grid-item-content">
-                    <h3>Death of Ji Kang</h3>
-                    <p>A Contemporary Dance Theater Performance (2008, Shenzhen OCT)</p>
-                </div>
-                <img src="images/005.jpg" alt="Death of Ji Kang" class="poster-img">
-            </a>
-
-            <a href="images/006.jpg" target="_blank" rel="noopener noreferrer" class="grid-item item-2">
-                <div class="grid-item-content">
-                    <h3>Prose China (1)</h3>
-                    <p>Shenzhen Book Fair Poster 1 (2009, Shenzhen)</p>
-                </div>
-                <img src="images/006.jpg" alt="Prose China (1)" class="poster-img">
-            </a>
-
-            <a href="images/007.jpg" target="_blank" rel="noopener noreferrer" class="grid-item item-3">
-                <div class="grid-item-content">
-                    <h3>Prose China (2)</h3>
-                    <p>Shenzhen Book Fair Poster 2 (2009, Shenzhen)</p>
-                </div>
-                <img src="images/007.jpg" alt="Prose China (2)" class="poster-img">
-            </a>
-
-            <a href="images/008.jpg" target="_blank" rel="noopener noreferrer" class="grid-item item-4">
-                <div class="grid-item-content">
-                    <h3>Pathway to Heart</h3>
-                    <p>Literary Works Poster 1</p>
-                </div>
-                <img src="images/008.jpg" alt="Pathway to Heart" class="poster-img">
-            </a>
-        </div>
-    </section>
-
-    <section id="posters-2" class="portfolio-section">
-        <h2>Poster Showcase II</h2>
-   
-        <div class="grid-container-4">
-            <a href="images/009.jpg" target="_blank" rel="noopener noreferrer" class="grid-item item-1">
-                <div class="grid-item-content">
-                    <h3>Liangzhou Life</h3>
-                    <p>Literary Works Poster 2</p>
-                </div>
-                <img src="images/009.jpg" alt="Liangzhou Life" class="poster-img">
-            </a>
-
-            <a href="images/010.jpg" target="_blank" rel="noopener noreferrer" class="grid-item item-2">
-                <div class="grid-item-content">
-                    <h3>A Dream</h3>
-                    <p>Literary Works Poster 3</p>
-                </div>
-                <img src="images/010.jpg" alt="A Dream" class="poster-img">
-            </a>
-
-            <a href="images/011.jpg" target="_blank" rel="noopener noreferrer" class="grid-item item-3">
-                <div class="grid-item-content">
-                    <h3>Vibe Hang (1)</h3>
-                    <p>Sample campaign poster — replace with your project details</p>
-                </div>
-                <img src="images/011.jpg" alt="Vibe Hang (1)" class="poster-img">
-            </a>
-
-            <a href="images/012.png" target="_blank" rel="noopener noreferrer" class="grid-item item-4">
-                <div class="grid-item-content">
-                    <h3>Vibe Hang (2)</h3>
-                    <p>Sample campaign poster — replace with your project details</p>
-                </div>
-                <img src="images/012.png" alt="Vibe Hang (2)" class="poster-img">
-            </a>
-        </div>
-    </section>
-
     <footer id="contact">
-        <p>Contact: Add a professional or course-approved contact method here.</p>
-        
+        <p>Get in touch for professional collaborations and media inquiries.</p>
         <div class="footer-links">
             <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
         </div>
-        
-        <p style="color: var(--text-muted); font-size: 0.8rem;">&copy; 2026 ACOM360. Student portfolio template.</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">&copy; 2026 Ian Dobbelaer. All rights reserved.</p>
     </footer>
 
 </body>
 </html>
+     
+ 
+       
+    
+
+   
