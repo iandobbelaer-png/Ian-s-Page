@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ian Dobbelaer | Media & Portfolio</title>
+    <title>Ian Dobbelaer | Media, AI & Digital Strategy Portfolio</title>
+    <!-- Google Fonts for Editorial & Modern Clean Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
     <style>
         /* --- DESIGN STYLES (CSS) --- */
         :root {
-            --bg-dark: #111111;
-            --bg-card: #1a1a1a;
-            --text-light: #ffffff;
-            --text-muted: #a0a0a0;
-            --accent-color: #C4A052; /* Earth Yellow */
-            --card-1: #8CC63F; /* Lime Green */
-            --card-2: #008C95; /* Teal */
-            --card-3: #3CB371; /* Forest Green */
-            --card-4: #C4A052; /* Earth Yellow */
-            --edge-padding: max(5%, calc((100% - 1100px) / 2));
+            --bg-dark: #0f1115;
+            --bg-card: #181b22;
+            --bg-card-hover: #21252f;
+            --text-light: #f4f4f6;
+            --text-muted: #9ca3af;
+            --accent-gold: #d4af37;
+            --accent-blue: #3b82f6;
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --edge-padding: 6%;
         }
 
         * {
@@ -28,11 +29,15 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-light);
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.65;
         }
 
         h1, h2, h3, .logo {
@@ -40,369 +45,480 @@
             font-weight: 700;
         }
 
-        /* Navigation Bar */
+        /* --- NAVIGATION BAR --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem var(--edge-padding);
-            background-color: rgba(17, 17, 17, 0.95);
+            padding: 1.5rem var(--edge-padding);
+            background-color: rgba(15, 17, 21, 0.92);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .logo {
-            font-size: 1.8rem;
-            letter-spacing: 2px;
+            font-size: 1.5rem;
+            letter-spacing: 1.5px;
             color: var(--text-light);
             text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.2rem;
         }
 
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 500;
             letter-spacing: 1px;
+            text-transform: uppercase;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--accent-gold);
         }
 
-        header, section {
-            border-bottom: 1px solid #333;
-        }
-
-        /* Hero Section */
-        header {
-            height: 60vh;
+        /* --- HERO HEADER --- */
+        header.hero {
             position: relative;
-            overflow: hidden;
-            margin-top: 85px;
-            background-color: #222222;
-        }
-
-        .hero-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 65%;
-            z-index: 1;
-        }
-
-        /* Introduction Section */
-        .intro-section {
-            padding: 3rem var(--edge-padding);
-            background-color: var(--bg-dark);
-            text-align: left;
-        }
-
-        .intro-text-container {
-            width: 100%;
-        }
-
-        .intro-text-container h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-color);
-        }
-
-        .intro-text-container p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 4rem var(--edge-padding);
-        }
-
-        .about-card {
-            background-color: var(--bg-card);
-            padding: 0;
-            border-radius: 4px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            align-items: stretch;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .about-card:hover {
-            background-color: var(--accent-color);
-        }
-
-        .about-text {
-            padding: 4rem;
+            min-height: 82vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: center;
+            padding: 8rem var(--edge-padding) 5rem;
+            /* REPLACE 'images/hero-picture.jpg' WITH YOUR OWN HERO PHOTO IN YOUR IMAGES FOLDER */
+            background: linear-gradient(to right, rgba(15, 17, 21, 0.92) 35%, rgba(15, 17, 21, 0.55) 100%),
+                        url('images/hero-picture.jpg') center/cover no-repeat;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
-        .about-text h2 {
-            font-size: 3rem;
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero-eyebrow {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem, 5vw, 4.2rem);
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background-color: var(--accent-gold);
+            color: #0f1115;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e5c148;
+            transform: translateY(-2px);
+        }
+
+        /* --- SECTION COMMON STYLES --- */
+        section {
+            padding: 5.5rem var(--edge-padding);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-label {
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
             margin-bottom: 1.5rem;
-            color: var(--accent-color);
-            transition: color 0.4s ease;
+        }
+
+        /* --- BRAND INTRODUCTION SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
         .about-text p {
-            font-size: 1.1rem;
+            color: #d1d5db;
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .brand-pillars {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .brand-pillars h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent-gold);
+        }
+
+        .pillar-item {
             margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .pillar-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .pillar-item strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .pillar-item span {
+            font-size: 0.88rem;
             color: var(--text-muted);
-            transition: color 0.4s ease;
         }
 
-        .about-card:hover .about-text h2, 
-        .about-card:hover .about-text p {
-            color: var(--bg-dark);
+        /* --- PORTFOLIO / 3 CATEGORIES SECTION --- */
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
         }
 
-        .about-video {
-            width: 100%;
-            height: 100%;
-            display: block;
+        .tab-btn {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: 1px solid var(--border-subtle);
+            padding: 0.65rem 1.35rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
 
-        .about-video a {
-            display: block;
-            width: 100%;
-            height: 100%;
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--accent-gold);
+            color: #0f1115;
+            border-color: var(--accent-gold);
+            font-weight: 600;
         }
 
-        .about-video img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: opacity 0.3s ease;
-        }
-
-        .about-video a:hover img {
-            opacity: 0.9;
-        }
-
-        /* Portfolio Grid Sections */
-        .portfolio-section {
-            padding: 6rem var(--edge-padding);
-        }
-
-        .portfolio-section h2 {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            text-align: left;
-            color: var(--accent-color);
-        }
-
-        .grid-container {
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
             gap: 2rem;
         }
 
-        .grid-item {
+        .project-card {
             background-color: var(--bg-card);
-            border-radius: 4px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
             overflow: hidden;
-            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            text-decoration: none;
-            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        .item-1 { --hover-bg: var(--card-1); border-bottom: 3px solid var(--card-1); }
-        .item-2 { --hover-bg: var(--card-2); border-bottom: 3px solid var(--card-2); }
-        .item-3 { --hover-bg: var(--card-3); border-bottom: 3px solid var(--card-3); }
-
-        .grid-item-content {
-            padding: 1.5rem;
+        .project-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--bg-card-hover);
         }
 
-        .grid-item-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
-            transition: color 0.4s ease;
+        .project-card.hidden {
+            display: none;
         }
 
-        .grid-item-content p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            transition: color 0.4s ease;
-        }
-
-        .grid-item img.video-thumbnail {
+        .card-img-wrapper {
             width: 100%;
-            height: 300px;
+            height: 210px;
+            background-color: #262b36;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
-        .grid-item:hover {
-            transform: translateY(-10px);
-            background-color: var(--hover-bg);
+        .project-card:hover .card-img-wrapper img {
+            transform: scale(1.04);
         }
 
-        .grid-item:hover .grid-item-content h3, 
-        .grid-item:hover .grid-item-content p {
-            color: var(--bg-dark);
+        .category-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(15, 17, 21, 0.85);
+            color: var(--accent-gold);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
         }
 
-        /* Footer */
+        .card-body {
+            padding: 1.65rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .card-body p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- CONTACT / FOOTER --- */
         footer {
+            padding: 4rem var(--edge-padding);
             text-align: center;
-            padding: 3rem var(--edge-padding);
-            background-color: #000;
         }
 
-        .footer-links {
-            margin-top: 1.5rem;
-            margin-bottom: 2rem;
+        footer h2 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            margin-bottom: 1.75rem;
+        }
+
+        .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
+        .social-links a {
             color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            transition: border-color 0.2s ease, color 0.2s ease;
         }
 
-        @media (max-width: 768px) {
-            .about-card { grid-template-columns: 1fr; }
-            .about-text { padding: 2rem; }
-            .nav-links { display: none; }
-            .footer-links { flex-direction: column; gap: 1rem; }
+        .social-links a:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 820px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- =====================================================================
+         1. NAVIGATION BAR
+         ===================================================================== -->
     <nav>
-        <a href="#" class="logo">Ian Dobbelaer</a>
+        <a href="#" class="logo">Ian <span>Dobbelaer</span></a>
         <ul class="nav-links">
-            <li><a href="#introduction">About</a></li>
-            <li><a href="#portfolio">Featured Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">Brand Intro</a></li>
+            <li><a href="#portfolio">Portfolio Categories</a></li>
+            <li><a href="#contact">Connect</a></li>
         </ul>
     </nav>
 
-    <header>
-        <img class="hero-image" src="images/hero-picture.jpg" alt="Ian Dobbelaer Portfolio banner">
+    <!-- =====================================================================
+         2. HERO HEADER SECTION
+         NOTE: Save a background photo as 'hero-picture.jpg' inside your 'images' folder
+         ===================================================================== -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-eyebrow">Communications • Media Production • AI Strategy</span>
+            <h1>Storytelling Engineered for the Modern Media Landscape.</h1>
+            <p>Bridging visual production, organizational leadership, and AI evaluation to craft high-impact digital narratives.</p>
+            <a href="#portfolio" class="btn-primary">Explore My Work</a>
+        </div>
     </header>
 
-    <section id="introduction" class="intro-section">
-        <div class="intro-text-container">
-            <h2>About Ian Dobbelaer</h2>
-            <p>Welcome to my professional portfolio. I am a communications and media student at the University at Albany with a strong focus on media production, digital storytelling, and strategic content creation.</p>
-            <p>This space highlights my coursework, media projects, and collaborative campaigns exploring the intersections of journalism, artificial intelligence, and visual media.</p>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="about-card">
+    <!-- =====================================================================
+         3. HOMEPAGE BRAND INTRODUCTION (REQUIRED BY ASSIGNMENT)
+         ===================================================================== -->
+    <section id="about">
+        <span class="section-label">About My Brand</span>
+        <h2 class="section-title">Where Creative Media Meets Strategic Execution</h2>
+        
+        <div class="about-grid">
             <div class="about-text">
-                <h2>Digital Avatar</h2>
-                <p>Highlighting digital media production, AI evaluation tools, and creative project contributions.</p>
+                <!-- EDIT YOUR PERSONAL BRAND STATEMENT BELOW -->
+                <p>
+                    I am <strong>Ian Dobbelaer</strong>, a Communications and Media Production student at the University at Albany with hands-on experience spanning video storytelling, AI benchmark evaluation, and organizational leadership.
+                </p>
+                <p>
+                    My personal brand is built on a dual foundation: creative precision behind the camera and analytical rigor in emerging digital technologies. Whether directing short-form video campaigns, evaluating large language models on Handshake AI, or leading student initiatives, I focus on turning complex ideas into clear, engaging audience experiences.
+                </p>
             </div>
-            <div class="about-video">
-                <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer">
-                    <img src="images/potfolio.png" alt="Digital Avatar Thumbnail">
-                </a>
+
+            <div class="brand-pillars">
+                <h3>Core Focus Areas</h3>
+                <div class="pillar-item">
+                    <strong>01. Visual & Digital Media Production</strong>
+                    <span>Cinematography, multi-shot framing, graphic editing, and vertical video storytelling.</span>
+                </div>
+                <div class="pillar-item">
+                    <strong>02. AI Evaluation & Algorithmic Media</strong>
+                    <span>Task annotation, AI quality assessment, and studying how algorithms shape news consumption.</span>
+                </div>
+                <div class="pillar-item">
+                    <strong>03. Organizational Leadership & Strategy</strong>
+                    <span>Elected chapter leadership, team coordination, and brand growth across campus and industry.</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="portfolio-section">
-        <h2>AI-Powered Documentaries</h2>
-        <div class="grid-container">
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-1">
-                <div class="grid-item-content">
-                    <h3>The Rational Illusion</h3>
-                    <p>Examining logical frameworks and complex narratives through digital documentary production.</p>
-                </div>
-                <img src="images/docpic.png" alt="The Rational Illusion" class="video-thumbnail">
-            </a>
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-2">
-                <div class="grid-item-content">
-                    <h3>Course Introduction</h3>
-                    <p>Overview of production concepts, creative direction, and media frameworks.</p>
-                </div>
-                <img src="images/picavatar.png" alt="Course Introduction" class="video-thumbnail">
-            </a>
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-3">
-                <div class="grid-item-content">
-                    <h3>Self Introduction</h3>
-                    <p>Personal and professional media overview highlighting goals in communications.</p>
-                </div>
-                <img src="images/potfolio.png" alt="Self Introduction" class="video-thumbnail">
-            </a>
-        </div>
-    </section>
+    <!-- =====================================================================
+         4. PORTFOLIO SHOWCASE — AT LEAST 3 CATEGORIES (REQUIRED BY ASSIGNMENT)
+         Category 1: Media Production
+         Category 2: AI & Digital Strategy
+         Category 3: Leadership & Campaigns
+         ===================================================================== -->
+    <section id="portfolio">
+        <span class="section-label">Selected Works</span>
+        <h2 class="section-title">Portfolio Categories</h2>
 
-    <section id="campaigns" class="portfolio-section">
-        <h2>Campaign Teasers</h2>
-        <div class="grid-container">
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-1">
-                <div class="grid-item-content">
-                    <h3>World News Day</h3>
-                    <p>Produced expert interview video shorts highlighting fact-based journalism and digital news integrity.</p>
-                </div>
-                <img src="images/worldpic.png" alt="World News Day" class="video-thumbnail">
-            </a>
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-2">
-                <div class="grid-item-content">
-                    <h3>Local News Heroes</h3>
-                    <p>Collaborative social media shorts addressing local news awareness and community journalism.</p>
-                </div>
-                <img src="images/localnewspic.png" alt="Local News Heroes" class="video-thumbnail">
-            </a>
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer" class="grid-item item-3">
-                <div class="grid-item-content">
-                    <h3>Dialogue 360</h3>
-                    <p>Student-led interview features exploring major conversations shaping modern academia and society.</p>
-                </div>
-                <img src="images/360.png" alt="Dialogue 360" class="video-thumbnail">
-            </a>
+        <!-- Interactive Filter Buttons for the 3 Categories -->
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterProjects('all', this)">All Categories (3)</button>
+            <button class="tab-btn" onclick="filterProjects('media', this)">1. Media Production</button>
+            <button class="tab-btn" onclick="filterProjects('ai', this)">2. AI & Digital Strategy</button>
+            <button class="tab-btn" onclick="filterProjects('leadership', this)">3. Leadership & Campaigns</button>
         </div>
-    </section>
 
-    <footer id="contact">
-        <p>Get in touch for professional collaborations and media inquiries.</p>
-        <div class="footer-links">
-            <a href="https://www.youtube.com/@acom360-k8" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.8rem;">&copy; 2026 Ian Dobbelaer. All rights reserved.</p>
-    </footer>
+        <div class="portfolio-grid">
 
-</body>
-</html>       
+            <!-- ===============================================================
+                 CATEGORY 1: MEDIA PRODUCTION
+                 Save thumbnail as 'images/project-media.jpg'
+                 =============================================================== -->
+            <article class="project-card" data-category="media">
+                <div class="card-img-wrapper">
+                    <span class="category-badge">Media Production</span>
+                    <!-- PASTE YOUR IMAGE FILE PATH BELOW -->
+                    <img src="images/project-media.jpg" alt="World News Day 2026 Video Production" onerror="this.src='https://placehold.co/600x400/181b22/d4af37?text=Media+Production'">
+                </div>
+                <div class="card-body">
+                    <h3>#WorldNewsDay 2026 Vertical Documentary</h3>
+                    <p>Produced and edited a 9:16 expert interview short in partnership with Global Youth & News Media examining AI and algorithmic news consumption.</p>
+                    <!-- PASTE YOUR YOUTUBE OR VIDEO LINK IN href="..." BELOW -->
+                    <a href="https://www.youtube.com" target="_blank" class="card-link">Watch Video Project &rarr;</a>
+                </div>
+            </article>
+
+            <!-- ===============================================================
+                 CATEGORY 2: AI & DIGITAL STRATEGY
+                 Save thumbnail as 'images/project-ai.jpg'
+                 =============================================================== -->
+            <article class="project-card" data-category="ai">
+                <div class="card-img-wrapper">
+                    <span class="category-badge">AI & Digital Strategy</span>
+                    <!-- PASTE YOUR IMAGE FILE PATH BELOW -->
+                    <img src="images/project-ai.jpg" alt="AI Evaluation and Prompt Engineering" onerror="this.src='https://placehold.co/600x400/181b22/d4af37?text=AI+%26+Digital+Strategy'">
+                </div>
+                <div class="card-body">
+                    <h3>AI Quality Assessment & Model Evaluation</h3>
+                    <p>Conducted structured benchmark evaluations, response ranking, and rubric-driven prompt testing on Handshake AI to improve model reasoning and accuracy.</p>
+                    <!-- PASTE YOUR LINK OR CASE STUDY URL IN href="..." BELOW -->
+                    <a href="#contact" class="card-link">Request Case Study &rarr;</a>
+                </div>
+            </article>
+
+            <!-- ===============================================================
+                 CATEGORY 3: LEADERSHIP & CAMPAIGNS
+                 Save thumbnail as 'images/project-leadership.jpg'
     
 
    
